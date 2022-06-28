@@ -1,5 +1,5 @@
-HTTPS simulator with diffie-hellman key exchange and aes encryption.
-Read .hpp files for more info about each function
+HTTPS simulator with Diffie-Hellman key exchange and AES 128b encryption.
+Read .hpp files for more info about each class and its methods.
 
 ## Prerequisites
 
