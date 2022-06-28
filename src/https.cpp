@@ -6,15 +6,12 @@
 
 
 HTTPS::HTTPS(){
-
     utils = std::make_unique<Utils>();
 	df = std::make_unique<DiffieHellman>();
 	aes = std::make_unique<AES>();
-
 }
 
 void HTTPS::run(string input_file){
-
 	// Read input strings: p, g, B and encrypted message
     auto input_map = utils->read_hex_strs_from_file(input_file);
 

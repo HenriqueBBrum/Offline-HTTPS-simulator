@@ -6,7 +6,6 @@
 #include <boost/algorithm/string.hpp>
 
 
-
 std::unordered_map<string, string> Utils::read_hex_strs_from_file(string filename){
 	std::fstream input_file;
 	input_file.open(filename,std::ios::in); 
@@ -32,7 +31,6 @@ std::unordered_map<string, string> Utils::read_hex_strs_from_file(string filenam
 
 	return map;
 }
-
 
 
 std::tuple<byte*, int> Utils::turn_hex_str_to_byte_array(const string &hex_str){
@@ -62,6 +60,7 @@ char *Utils::reverse_char( char *start ){
     reverse( start, end );
     return( end+1 );
 }
+
 
 void Utils::reverse_string( char *string ){
     char *end = string;

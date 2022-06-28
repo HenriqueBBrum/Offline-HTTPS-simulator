@@ -6,8 +6,6 @@
 #include <sstream>
 #include <iomanip>
 
-
-
 #include <gmp.h>
 
 #include <openssl/sha.h>
@@ -38,8 +36,10 @@ std::unordered_map<string, string> DiffieHellman::generate_public_key(string p_h
 	mpz_urandomm(a,state, p); // 0 - p-1
 
 	mpz_init(A);
+	// g^a mod p
 	mpz_powm(A, g, a, p);
 
+	// Write to file private and public keys
 	std::fstream output_file;
 	output_file.open(diffie_hellman_1_output_path,std::ios::out); 
 	auto a_hex = mpz_get_str(nullptr, -16, a);
@@ -58,6 +58,7 @@ string DiffieHellman::find_diffie_hellman_secret(string B_hex, string a_hex, str
 	mpz_init_set_str(p, p_hex.c_str(), 16);
 
 	mpz_init(V);
+	// V = B^a mod p
 	mpz_powm(V, B, a, p);
 
 	return mpz_get_str(nullptr, -16, V);
@@ -75,8 +76,8 @@ bool DiffieHellman::Openssl_SHA256hash(const byte* unhashed, const int unhashed_
 
 			if(EVP_DigestFinal_ex(context, hash, &lengthOfHash)) {
 				std::stringstream ss;
-				for(unsigned int i = 0; i < lengthOfHash; ++i)
-				{
+				// COnvert to hexadecimal string
+				for(unsigned int i = 0; i < lengthOfHash; ++i){
 					ss << std::uppercase<<std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
 				}
 

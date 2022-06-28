@@ -1,5 +1,7 @@
-#pragma once
+/* AES class implementation. Encrypt and decrypt methods */
 
+
+#pragma once
 
 #include <../include/utils.hpp>
 

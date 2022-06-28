@@ -1,15 +1,15 @@
+/*  Diffie-hellman implementantion using gmp to generate 'a' and 'A' values (private and public key).
+    After finding common secret with diffie-hellman, the first 128 bits of OpenSSL sha256 hash is used as AES key */
+
+
 #pragma once
 
-
 #include <../include/utils.hpp>
-
 
 #include <memory>
 
 
 class DiffieHellman{
-
-
     private:
         std::unique_ptr<Utils> utils;
 
@@ -33,8 +33,4 @@ class DiffieHellman{
         /*  Discovers diffie-hellman secret and calculates SHA256 from it. First 128 bits of the hash is the aes key 
             Return hexadecimal value of aes key */
         string find_aes128_key(string p_hex, string g_hex, string B_hex);
-
-
-
-
 };

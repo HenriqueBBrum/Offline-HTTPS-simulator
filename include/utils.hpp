@@ -11,7 +11,6 @@
 #define BLOCK_SZ 16
 #define KEY_SZ 16
 
-
 using std::string;
 
 typedef unsigned char byte;
@@ -19,7 +18,6 @@ typedef unsigned char byte;
 
 class Utils{
     private:
-
         // Reverse multibyte char
         void reverse( char *start, char *end );
 
@@ -27,7 +25,6 @@ class Utils{
 
 
     public:
-
         Utils(){}
 
         static const char file_delimiter = '%';
@@ -42,6 +39,4 @@ class Utils{
 
         /* Reverses an UTF-8 string */
         void reverse_string( char *string );
-
-
 };
